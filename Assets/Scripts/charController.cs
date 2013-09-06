@@ -23,12 +23,12 @@ public class charController : MonoBehaviour {
 		movedRight = false;
 		movedUp = false;
 		movedDown = false;
-		collisionBuffer = 0.04f;
+		collisionBuffer = 0.001f;
 		colCast = new RaycastHit();
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		
 		//Reset motion flags
 		movedLeft = false;
@@ -40,88 +40,35 @@ public class charController : MonoBehaviour {
 		if(Input.GetKey(KeyCode.A))
 		{
 			if(Physics.SphereCast(transform.position,(collider as SphereCollider).bounds.size.x/2,Vector3.left,out colCast,speed*Time.deltaTime))
-			{
-				newPos = transform.position;
-				newPos.x = colCast.collider.bounds.max.x + (collider as SphereCollider).bounds.size.x/2;
-				transform.position = newPos;
-			}
+				transform.Translate (-colCast.distance + collisionBuffer,0f,0f,Space.World);
 			else
-				transform.Translate(-speed*Time.deltaTime,0f,0f);
+				transform.Translate(-speed*Time.deltaTime,0f,0f,Space.World);
 
 		}
 		else if(Input.GetKey(KeyCode.D))
 		{
 			if(Physics.SphereCast(transform.position,(collider as SphereCollider).bounds.size.x/2,Vector3.right,out colCast,speed*Time.deltaTime))
-			{
-				newPos = transform.position;
-				newPos.x = colCast.collider.bounds.min.x - (collider as SphereCollider).bounds.size.x/2;
-				transform.position = newPos;
-			}
+				transform.Translate (colCast.distance - collisionBuffer,0f,0f,Space.World);
+
 			else
-				transform.Translate(speed*Time.deltaTime,0f,0f);
+				transform.Translate(speed*Time.deltaTime,0f,0f,Space.World);
 
 		}
 		if(Input.GetKey(KeyCode.W))
 		{
 			if(Physics.SphereCast(transform.position,(collider as SphereCollider).bounds.size.z/2,Vector3.forward,out colCast,speed*Time.deltaTime))
-			{
-				newPos = transform.position;
-				newPos.z = colCast.collider.bounds.min.z - (collider as SphereCollider).bounds.size.z/2;
-				transform.position = newPos;
-			}
+				transform.Translate (0f,0f,colCast.distance - collisionBuffer,Space.World);
 			else
-				transform.Translate(0f,0f,speed*Time.deltaTime);
+				transform.Translate(0f,0f,speed*Time.deltaTime,Space.World);
 		}
 		if(Input.GetKey(KeyCode.S))
 		{
 			if(Physics.SphereCast(transform.position,(collider as SphereCollider).bounds.size.z/2,Vector3.back,out colCast,speed*Time.deltaTime))
-			{
-				newPos = transform.position;
-				newPos.z = colCast.collider.bounds.max.z + (collider as SphereCollider).bounds.size.z/2;
-				transform.position = newPos;
-			}
+				transform.Translate (0f,0f,-colCast.distance + collisionBuffer,Space.World);
+
 			else
-				transform.Translate(0f,0f,-speed*Time.deltaTime);
+				transform.Translate(0f,0f,-speed*Time.deltaTime,Space.World);
 		}
 			
 	}
-	
-	/*
-	void OnTriggerStay(Collider col)
-	{
-		if(col.gameObject.tag == "Wall")
-		{
-			if(movedUp)
-			{
-				Vector3 newPos = transform.position;
-				newPos.z = col.bounds.min.z - transform.collider.bounds.size.z/2f - collisionBuffer;
-				transform.position = newPos;
-				return;
-			}
-			if(movedDown)
-			{
-				Vector3 newPos = transform.position;
-				newPos.z = col.bounds.max.z + transform.collider.bounds.size.z/2f + collisionBuffer;
-				transform.position = newPos;
-				return;
-			}
-
-			if(movedLeft)
-			{
-				Vector3 newPos = transform.position;
-				newPos.x = col.bounds.max.x + transform.collider.bounds.size.x/2f + collisionBuffer;
-				transform.position = newPos;
-				return;
-			}
-			if(movedRight)
-			{
-				Vector3 newPos = transform.position;
-				newPos.x = col.bounds.min.x - transform.collider.bounds.size.x/2f - collisionBuffer;
-				transform.position = newPos;
-				return;
-			}
-		
-		}
-	}
-	*/
 }

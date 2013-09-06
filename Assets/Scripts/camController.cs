@@ -19,7 +19,7 @@ public class camController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void Update () {
 		camPos = transform.position;
 		camPos.y = defaultHeight;
 		camPos.z = camPos.z - zBuffer;
