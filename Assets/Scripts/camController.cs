@@ -12,13 +12,14 @@ public class camController : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		Application.targetFrameRate = 60;
 		cam = GameObject.Find("Main Camera");
 		defaultHeight = cam.transform.position.y;
 		zBuffer = 0.25f;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 		camPos = transform.position;
 		camPos.y = defaultHeight;
 		camPos.z = camPos.z - zBuffer;
