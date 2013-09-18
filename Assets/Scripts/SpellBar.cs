@@ -11,6 +11,10 @@ public class SpellBar{
 		currentSpells = new Spell[3];
 		selectedSpell = 0;
 		
+		//TESTING
+		currentSpells[0] = new FrostWall();
+		currentSpells[1] = new FrostWall();
+		currentSpells[2] = new FrostWall();
 	}
 	
 	public bool activate()
@@ -28,10 +32,34 @@ public class SpellBar{
 	
 	public void cycleSelectedSpell()
 	{
-		selectedSpell++;
-		if(selectedSpell > 2)
+		if((currentSpells[0] == null)&&(currentSpells[1] == null)&&(currentSpells[2] == null))
 		{
-			selectedSpell = 0;
+		
 		}
+		else
+		{
+			selectedSpell++;
+			if(selectedSpell > 2)
+			{
+				selectedSpell = 0;
+			}
+			if(currentSpells[selectedSpell] == null)
+			{
+				selectedSpell++;
+				if(selectedSpell > 2)
+				{
+					selectedSpell = 0;
+				}
+				if(currentSpells[selectedSpell] == null)
+				{
+					selectedSpell++;
+					if(selectedSpell > 2)
+					{
+						selectedSpell = 0;
+					}
+				}	
+			}			
+		}
+		
 	}
 }

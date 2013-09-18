@@ -9,8 +9,4 @@ public class FrostWall : Spell{
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
