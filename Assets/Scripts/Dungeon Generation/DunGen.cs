@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 public class DunGen : MonoBehaviour {
 
@@ -60,10 +62,12 @@ public class DunGen : MonoBehaviour {
 				{
 					ok = true;
 					roomList.Add (candRoom);
+					addRoomToMap(candRoom);
 				}
 			}
 		}
 		
+		/*
 		for(int i =0; i < roomList.Count; i++)
 		{
 			GameObject newTile = (GameObject) Instantiate(Resources.Load ("Tile"));
@@ -72,12 +76,146 @@ public class DunGen : MonoBehaviour {
 			print (roomList[i].x + " " + roomList[i].y + " " + roomList[i].width + " " + roomList[i].height);
 			
 		}
+		*/
+		int numConnections = numRooms;
+		List<Room> connectedRooms = new List<Room>();
+		
+		
+		for(int i = 0; i < numConnections; i++)
+		{
+			Room roomA = roomList[i];
+			Room roomB = null;
+			bool found = false;
+			while(!found)
+			{
+				roomB = roomList[Random.Range (0,roomList.Count - 1)];
+				if(roomB != roomA)
+					found = true;
+			}
+			
+			int aX = Random.Range (roomA.x,roomA.x + roomA.width);
+			int aY = Random.Range (roomA.y,roomA.y + roomA.height);
+			int bX = Random.Range (roomB.x,roomB.x + roomB.width);
+			int bY = Random.Range (roomB.y,roomB.y + roomB.height);
+			
+			while((aX != bX) || (aY != bY))
+			{
+				if(aX != bX)
+				{
+					if(bX > aX)
+						aX++;
+					else
+						aX--;
+				}
+				else
+				{
+					if(bY > aY)
+						aY++;
+					else
+						aY--;
+				}
+				map[aX,aY] = 1;
+			}
+			
+		}
+		//outputMapFile ();
+		createTiles();
+		createWalls();
+		
+		
 		
 
 	}
+	void createTiles()
+	{
+		for(int i = 0; i < MAP_WIDTH; i++)
+		{
+			for(int j = 0; j < MAP_HEIGHT; j++)
+			{
+				if(map[i,j] == 1)
+				{
+					GameObject newTile = (GameObject) Instantiate(Resources.Load ("Tile"));
+					newTile.transform.position = new Vector3((float)i,0,(float)j);
+				}
+			}
+		}
+	}
 	
-	// Update is called once per frame
-	void Update () {
+	void createWalls()
+	{
+		bool isWall = false;
+		for(int i = -1; i <= MAP_WIDTH; i++)
+		{
+			for(int j = -1; j <= MAP_HEIGHT; j++)
+			{
+				if((i >= 0)&&(i < MAP_WIDTH)&&(j >= 0)&&(j < MAP_HEIGHT)&&(map[i,j] == 0))
+					{
+					isWall = false;
+					if((j != -1)&&(j != MAP_HEIGHT))
+					{
+						if((i+1 >= 0) &&(i+1 < MAP_WIDTH))
+						{
+							if(map[i+1,j] == 1)
+								isWall = true;
+						}
+						if((i-1 >= 0) &&(i-1 < MAP_WIDTH))
+						{
+							if(map[i-1,j] == 1)
+								isWall = true;
+						}
+					}
+					if((i != -1) &&(i != MAP_WIDTH))
+					{
+						if((j+1 >= 0) &&(j+1 < MAP_HEIGHT))
+						{
+							if(map[i,j+1] == 1)
+								isWall = true;
+						}
+						if((j-1 >= 0) &&(j-1 < MAP_HEIGHT))
+						{
+							if(map[i,j-1] == 1)
+								isWall = true;
+						}
+					}
+					if(isWall)
+					{
+						GameObject newWall = (GameObject) Instantiate(Resources.Load ("Wall"));
+						newWall.transform.position = new Vector3((float)i,0,(float)j);
+					}
+				}
+				
+			}
+		}
 	
 	}
+	
+	
+	void addRoomToMap(Room room)
+	{
+		for(int i = 0; i < room.width;i++)
+		{
+			for(int j = 0; j < room.height; j++)
+			{
+				map[room.x + i, room.y + j] = 1;
+			}
+		}
+	}
+	
+	void outputMapFile()
+	{
+		string path = @"c:\users\Martin\Desktop\map.txt";
+		File.WriteAllText(path, "");
+		
+		for(int i = MAP_WIDTH - 1; i >= 0; i--)
+		{
+			for(int j = 0; j < MAP_HEIGHT; j++)
+			{
+				File.AppendAllText(path,""+map[j,i] + " ");
+			}
+			File.AppendAllText (path,System.Environment.NewLine);
+		}
+	}
+	
+	
+	
 }
