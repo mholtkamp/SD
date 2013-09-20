@@ -27,6 +27,7 @@ public class spellBarScript : MonoBehaviour {
 		height = 0.16f;
 		guiTexture.pixelInset =	new Rect(Screen.width*x,Screen.height*y,Screen.width*width,Screen.height*height);
 		
+
 		//Grab the initial spells from the SpellBar object.
 		spellTextures = new GUITexture[3];
 		spellTextures[0] = (GUITexture)(GameObject.Find ("Spell1")).GetComponent(typeof(GUITexture));
