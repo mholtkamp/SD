@@ -3,15 +3,19 @@ using System.Collections;
 
 public abstract class Spell{
 	
-	protected GUITexture texture;
+	protected Texture texture;
+	protected GameObject activationPrefab;
 	
 	public Spell()
 	{
 		
 	}
 	
-	public void activate()
+	abstract public void activate();
+
+	
+	public Texture getTexture()
 	{
-		
+		return texture;	
 	}
 }

@@ -16,7 +16,13 @@ public class spellBarScript : MonoBehaviour {
 		opaque = new Vector4(0.5f,0.5f,0.5f,1f);
 		translucent = new Vector4(0.5f,0.5f,0.5f,0.212f);
 		invisible = new Vector4(0.5f,0.5f,0.5f,0f);
+		spellTextures = new GUITexture[3];
+		spellTextures[0] = (GUITexture)  GameObject.Find("Spell1").GetComponent (typeof(GUITexture));
+		spellTextures[1] = (GUITexture)  GameObject.Find("Spell2").GetComponent (typeof(GUITexture));
+		spellTextures[2] = (GUITexture)  GameObject.Find("Spell3").GetComponent (typeof(GUITexture));
+
 		bar = new SpellBar();
+		refreshSpellTextures();
 		
 		//Prepare the GUITexture PixelInset.
 		transform.position = Vector3.zero;
@@ -27,15 +33,6 @@ public class spellBarScript : MonoBehaviour {
 		height = 0.16f;
 		guiTexture.pixelInset =	new Rect(Screen.width*x,Screen.height*y,Screen.width*width,Screen.height*height);
 		
-
-		//Grab the initial spells from the SpellBar object.
-		spellTextures = new GUITexture[3];
-		spellTextures[0] = (GUITexture)(GameObject.Find ("Spell1")).GetComponent(typeof(GUITexture));
-		spellTextures[0].texture = (Texture) Resources.Load ("FrostWall");
-		spellTextures[1] = (GUITexture)(GameObject.Find ("Spell2")).GetComponent(typeof(GUITexture));
-		spellTextures[1].texture = Resources.Load ("Speed") as Texture;
-		spellTextures[2] = (GUITexture)(GameObject.Find ("Spell3")).GetComponent(typeof(GUITexture));
-		spellTextures[2].texture = Resources.Load ("FrostWall") as Texture;
 		
 		for(int i = 0; i < 3; i++)
 			{
@@ -78,6 +75,30 @@ public class spellBarScript : MonoBehaviour {
 				}
 			}
 		}
+	}
+	
+	public void refreshSpellTextures()
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			spellTextures[i].guiTexture.texture = bar.currentSpells[i].getTexture();
+		}
+		for(int i = 0; i < 3; i++)
+		{
+			if(spellTextures[i].texture != null)
+			{
+				if(i == bar.selectedSpell)
+					spellTextures[i].color = opaque;
+				else
+					spellTextures[i].color = translucent;
+			}
+		}
+	}
+	
+	public void drawSpells()
+	{
+		bar.selectedSpell = 0;
+		bar.drawSpells();	
 	}
 
 

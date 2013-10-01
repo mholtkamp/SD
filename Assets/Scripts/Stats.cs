@@ -9,8 +9,9 @@ public class Stats : MonoBehaviour {
 		maxHealth = 100;
 		health = maxHealth;
 		damage = 3;
-		speed = 3;
+		speed = 200;
 		wisdom = 3;
+		attackSpeed = 3;
 	}
 
 }

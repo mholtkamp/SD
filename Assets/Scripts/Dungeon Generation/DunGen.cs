@@ -121,11 +121,30 @@ public class DunGen : MonoBehaviour {
 		//outputMapFile ();
 		createTiles();
 		createWalls();
+		spawnCharacter();
 		
 		
 		
 
 	}
+	
+	void spawnCharacter()
+	{
+		int x,y;
+		x = 0;
+		y = 0;
+		bool found = false;
+		while(!found)
+		{
+			x = Random.Range(1,MAP_WIDTH);
+			y = Random.Range (1,MAP_HEIGHT);
+			if(map[x,y] == 1)
+				found = true;
+		}
+		GameObject chara = (GameObject) Instantiate(Resources.Load ("Character"));
+		chara.transform.position = new Vector3((float)x,0.3f,(float)y);
+	}
+	
 	void createTiles()
 	{
 		for(int i = 0; i < MAP_WIDTH; i++)

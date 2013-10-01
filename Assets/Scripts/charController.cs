@@ -9,11 +9,13 @@ public class charController : MonoBehaviour {
 	
 	public float speed;
 	public float collisionBuffer;
+	Stats stats;
 	
 	
 	// Use this for initialization
 	void Start () {	
-		speed = 2f;
+		stats = (Stats) (GetComponent(typeof(Stats)));
+		speed = (float) (stats.speed/100f);
 		collisionBuffer = 0.001f;
 		colCast = new RaycastHit();
 //		animation.Play("Take 001");
@@ -22,6 +24,8 @@ public class charController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+		speed = (float) (stats.speed/100f);
+
 		//Handle Input
 		if(Input.GetKey(KeyCode.A))
 		{

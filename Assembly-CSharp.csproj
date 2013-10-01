@@ -48,13 +48,15 @@
      <Compile Include="Assets\Scripts\Dungeon Generation\DunGenCam.cs" />
      <Compile Include="Assets\Scripts\Dungeon Generation\HUDFPS.cs" />
      <Compile Include="Assets\Scripts\Dungeon Generation\Room.cs" />
+     <Compile Include="Assets\Scripts\SpellActivationScripts\SpeedActivationScript.cs" />
      <Compile Include="Assets\Scripts\SpellBar.cs" />
      <Compile Include="Assets\Scripts\Spells\FrostWall.cs" />
+     <Compile Include="Assets\Scripts\Spells\Speed.cs" />
      <Compile Include="Assets\Scripts\Spells\Spell.cs" />
-     <Compile Include="Assets\Scripts\StatManager.cs" />
      <Compile Include="Assets\Scripts\Stats.cs" />
      <Compile Include="Assets\Scripts\camController.cs" />
      <Compile Include="Assets\Scripts\charController.cs" />
+     <Compile Include="Assets\Scripts\conjBar.cs" />
      <Compile Include="Assets\Scripts\exitButtonScript.cs" />
      <Compile Include="Assets\Scripts\lookAtMouse.cs" />
      <Compile Include="Assets\Scripts\spellBarScript.cs" />

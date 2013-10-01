@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SpellBar{
 	
 	public Spell[] currentSpells;
 	public int selectedSpell;
+	public List<Spell> spellPool;
 
 	public SpellBar()
 	{
 		currentSpells = new Spell[3];
 		selectedSpell = 0;
 		
-		//TESTING
-		currentSpells[0] = new FrostWall();
-		currentSpells[1] = new FrostWall();
-		currentSpells[2] = new FrostWall();
+		setUpSpellPool();
+		drawSpells();
 	}
 	
 	public bool activate()
@@ -62,4 +62,23 @@ public class SpellBar{
 		}
 		
 	}
+	
+	private void setUpSpellPool()
+	{
+		spellPool = new List<Spell>();
+		//Put starting Spell Pool here. 
+		//Add variation for different classes once they get implemented.
+		spellPool.Add (new FrostWall());
+		spellPool.Add (new Speed());
+		spellPool.Add (new FrostWall());
+		spellPool.Add (new Speed());
+		spellPool.Add (new FrostWall());
+	}
+	
+	public void drawSpells()
+	{
+		for(int i = 0; i < 3; i++)
+			currentSpells[i] = spellPool[Random.Range(0,spellPool.Count)];
+	}
+	
 }

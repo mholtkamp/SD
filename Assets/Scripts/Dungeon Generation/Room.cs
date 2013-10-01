@@ -23,13 +23,13 @@ public class Room{
 	
 	public static bool isInsideMap(Room room,int width,int height)
 	{
-		if(room.x < 0)
+		if(room.x < 1)
 			return false;
-		if(room.x + room.width > width)
+		if(room.x + room.width > width-1)
 			return false;
-		if(room.y < 0)
+		if(room.y < 1)
 			return false;
-		if(room.y + room.height > height)
+		if(room.y + room.height > height-1)
 			return false;
 		
 		return true;

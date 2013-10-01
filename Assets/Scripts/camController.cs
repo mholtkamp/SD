@@ -14,7 +14,8 @@ public class camController : MonoBehaviour {
 	void Start () {
 		Application.targetFrameRate = 60;
 		cam = GameObject.Find("Main Camera");
-		defaultHeight = cam.transform.position.y;
+		defaultHeight = 3.5f;
+		//cam.transform.position.y;
 		zBuffer = 0.25f;
 	}
 	

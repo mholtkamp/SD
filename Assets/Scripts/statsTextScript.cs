@@ -20,7 +20,7 @@ public class statsTextScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		guiText.text = "Health:\t(" + stats.health + "/" + stats.maxHealth +")\n" +
+		guiText.text = "Health: (" + stats.health + "/" + stats.maxHealth +")\n" +
 			"Damage: " + stats.damage + "    Speed: " + stats.speed + "\n" +
 			"Wisdom: " + stats.wisdom + "    Attack Speed: " + stats.attackSpeed;
 
