@@ -48,6 +48,8 @@
      <Compile Include="Assets\Scripts\Dungeon Generation\DunGenCam.cs" />
      <Compile Include="Assets\Scripts\Dungeon Generation\HUDFPS.cs" />
      <Compile Include="Assets\Scripts\Dungeon Generation\Room.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\BasicMovementScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\TridentGhost\TridentGhostController.cs" />
      <Compile Include="Assets\Scripts\SpellActivationScripts\SpeedActivationScript.cs" />
      <Compile Include="Assets\Scripts\SpellBar.cs" />
      <Compile Include="Assets\Scripts\Spells\FrostWall.cs" />
