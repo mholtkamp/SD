@@ -10,6 +10,7 @@ public class BasicMovementScript : MonoBehaviour {
 	Stats stats;
 	float collisionBuffer = 0.001f;
 	float speed;
+	bool isEnabled;
 	
 	void Start () {
 		chara = GameObject.Find ("Character");
@@ -17,16 +18,20 @@ public class BasicMovementScript : MonoBehaviour {
 		targVect = new Vector3();
 		colCast = new RaycastHit();
 		stats = (Stats) GetComponent (typeof(Stats));
+		isEnabled = true;
 		
 	}
 	
 	void Update () {
 		
-		search();
-		if(targetAcquired)
-			move();
-		transform.LookAt (chara.transform);
-		animate();
+		if(isEnabled)
+		{
+			search();
+			if(targetAcquired)
+				move();
+			transform.LookAt (chara.transform);
+			animate();
+		}
 
 	}
 	
@@ -69,4 +74,15 @@ public class BasicMovementScript : MonoBehaviour {
 		else
 			animation.Play ("Move");
 	}
+	
+	public void disable()
+	{
+		isEnabled = false;
+	}
+	
+	public void enable()
+	{
+		isEnabled = true;
+	}
+	
 }
