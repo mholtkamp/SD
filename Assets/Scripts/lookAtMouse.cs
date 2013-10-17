@@ -24,10 +24,7 @@ public class lookAtMouse : MonoBehaviour {
 			transform.LookAt(cursorRay.GetPoint(intersectDistance));
 			onlyY = new Vector3(0,transform.rotation.eulerAngles.y,0);
 			transform.localEulerAngles = onlyY;
-		}//Ray.GetPoint() takes a distance on the ray
-			//and returns a Vector3.  
-		    //transform.Lookat() takes a Vector3 and makes the object's (that scrip is attached to) forward
-			//point towards the Vector3 given
+		}
 	
 	}
 }

@@ -122,6 +122,7 @@ public class DunGen : MonoBehaviour {
 		createTiles();
 		createWalls();
 		spawnCharacter();
+		instantiateHUD ();
 		
 		
 		
@@ -143,6 +144,15 @@ public class DunGen : MonoBehaviour {
 		}
 		GameObject chara = (GameObject) Instantiate(Resources.Load ("Character"));
 		chara.transform.position = new Vector3((float)x,0.3f,(float)y);
+		chara.name = "Character";
+	}
+	
+	void instantiateHUD()
+	{
+		(GameObject.Instantiate (Resources.Load ("SpellBarHUD"))).name = "SpellBarHUD";
+		(GameObject.Instantiate (Resources.Load ("GUI"))).name = "GUI";
+		(GameObject.Instantiate (Resources.Load ("ConjBar"))).name = "ConjBar";
+
 	}
 	
 	void createTiles()

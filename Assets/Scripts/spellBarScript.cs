@@ -23,15 +23,7 @@ public class spellBarScript : MonoBehaviour {
 
 		bar = new SpellBar();
 		refreshSpellTextures();
-		
-		//Prepare the GUITexture PixelInset.
-		transform.position = Vector3.zero;
-		transform.localScale = Vector3.zero;
-		x = 0.01f;
-		y = 0.82f;
-		width = 0.2404f;
-		height = 0.16f;
-		guiTexture.pixelInset =	new Rect(Screen.width*x,Screen.height*y,Screen.width*width,Screen.height*height);
+	
 		
 		
 		for(int i = 0; i < 3; i++)

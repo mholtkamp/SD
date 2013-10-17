@@ -2,8 +2,9 @@
 using System.Collections;
 
 public class Stats : MonoBehaviour {
-
-	public int health,maxHealth,damage,speed,wisdom,attackSpeed;
+	
+	public float health, maxHealth;
+	public int damage,speed,wisdom,attackSpeed;
 	void Start()
 	{
 		maxHealth = 100;

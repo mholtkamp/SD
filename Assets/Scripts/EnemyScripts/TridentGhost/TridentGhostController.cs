@@ -71,11 +71,11 @@ public class TridentGhostController : MonoBehaviour {
 	
 	private void setBaseStats()
 	{
-		stats.speed = 100;
+		stats.speed = 200;
 		stats.damage = 2;
 		stats.attackSpeed = 0;
 		stats.wisdom = 0;
-		stats.health = 10;
+		stats.health = 100;
 		stats.maxHealth = stats.health;
 	}
 }

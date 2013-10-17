@@ -23,7 +23,6 @@ public class statsTextScript : MonoBehaviour {
 		guiText.text = "Health: (" + stats.health + "/" + stats.maxHealth +")\n" +
 			"Damage: " + stats.damage + "    Speed: " + stats.speed + "\n" +
 			"Wisdom: " + stats.wisdom + "    Attack Speed: " + stats.attackSpeed;
-
 		
 
 	}

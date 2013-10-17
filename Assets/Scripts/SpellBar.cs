@@ -73,6 +73,12 @@ public class SpellBar{
 		spellPool.Add (new FrostWall());
 		spellPool.Add (new Speed());
 		spellPool.Add (new FrostWall());
+		spellPool.Add (new Detonate() );
+		spellPool.Add (new Detonate() );
+		spellPool.Add (new Detonate() );
+		spellPool.Add (new Detonate() );
+
+
 	}
 	
 	public void drawSpells()
