@@ -6,27 +6,47 @@ using System.Text;
 
 public class DunGen : MonoBehaviour {
 
-	const int MAP_WIDTH = 40;
-	const int MAP_HEIGHT = 40;
+	const int MAP_WIDTH = 30;
+	const int MAP_HEIGHT = 30;
 	int[,] map;
+	
+	int minRooms;
+	int maxRooms;
+	int minRoomSize;
+	int maxRoomSize;
+	
+	int enemyCount;
+	int enemyMin;
+	int enemyMax;
+	
+	enum Enemies {	TridentGhost,
+					Beamo,
+					Torpedo};
+	
+	
+	
 	void Start () 
 	{
 		
 		map = new int[MAP_WIDTH,MAP_HEIGHT];
 		
 		//Number of rooms
-		int minRooms = (MAP_WIDTH * MAP_HEIGHT)/300;
-		int maxRooms = (MAP_WIDTH * MAP_HEIGHT)/150;
-		int numRooms = Random.Range (minRooms,maxRooms);
-		print(numRooms);
+		//minRooms = (MAP_WIDTH * MAP_HEIGHT)/300;
+		//maxRooms = (MAP_WIDTH * MAP_HEIGHT)/150;
+
 		
 		//Room sizes
+		/*
 		int widthRoot = (int) Mathf.Sqrt((float)MAP_WIDTH*2.0f);
 		int heightRoot = (int) Mathf.Sqrt ((float) MAP_HEIGHT*2.0f);
 		int minRoomWidth = (int) (MAP_WIDTH * 0.5f)/widthRoot;
 		int maxRoomWidth = (int) (MAP_WIDTH * 2.0f)/widthRoot;
 		int minRoomHeight = (int) (MAP_HEIGHT * 0.5f)/heightRoot;
 		int maxRoomHeight = (int) (MAP_HEIGHT * 2.0f)/heightRoot;
+		*/
+		
+		setGenParameters();
+		int numRooms = Random.Range (minRooms,maxRooms);
 		
 		//Create Rooms
 		List<Room> roomList = new List<Room>();
@@ -42,8 +62,8 @@ public class DunGen : MonoBehaviour {
 				Room candRoom = new Room();
 				candRoom.x = Random.Range(0,MAP_WIDTH);
 				candRoom.y = Random.Range(0,MAP_HEIGHT);
-				candRoom.width = Random.Range(minRoomWidth,maxRoomWidth);
-				candRoom.height = Random.Range(minRoomHeight,maxRoomHeight);
+				candRoom.width = Random.Range(minRoomSize,maxRoomSize);
+				candRoom.height = Random.Range(minRoomSize,maxRoomSize);
 				
 				//Room outside map?
 				if(!Room.isInsideMap (candRoom,MAP_WIDTH,MAP_HEIGHT))
@@ -122,6 +142,7 @@ public class DunGen : MonoBehaviour {
 		createTiles();
 		createWalls();
 		spawnCharacter();
+		spawnEnemies();
 		instantiateHUD ();
 		
 		
@@ -242,6 +263,52 @@ public class DunGen : MonoBehaviour {
 				File.AppendAllText(path,""+map[j,i] + " ");
 			}
 			File.AppendAllText (path,System.Environment.NewLine);
+		}
+	}
+	
+	private void setGenParameters()
+	{
+		if(Application.loadedLevelName.Equals ("lvl1"))
+		{
+			minRooms = 8;
+			maxRooms = 14;
+			minRoomSize = 4;
+			maxRoomSize = 8;
+			
+			enemyCount = 12;
+			enemyMin = 0;
+			enemyMax = 2;
+			
+		}
+	}
+	
+	private void spawnEnemies()
+	{
+		for(int i = 0; i < enemyCount; i++)
+		{
+			Enemies en = (Enemies) Random.Range (enemyMin,enemyMax+1);
+			GameObject newEnemy = null;
+			bool posFound = false;
+			
+			if(en == Enemies.TridentGhost)
+				newEnemy = (GameObject) Instantiate (Resources.Load ("TridentGhost"));
+			else if(en == Enemies.Beamo)
+				newEnemy = (GameObject) Instantiate (Resources.Load ("beamo"));
+			else if(en == Enemies.Torpedo)
+				newEnemy = (GameObject) Instantiate (Resources.Load ("TorpedoParent"));
+			
+			while(!posFound)
+			{
+				int xPos =	Random.Range (0,MAP_WIDTH);
+				int yPos =  Random.Range (0,MAP_HEIGHT);
+				if(map[xPos,yPos] == 1)
+				{
+					posFound = true;
+					newEnemy.transform.position = new Vector3(xPos,0.3f,yPos);
+				}
+				
+			}
+			
 		}
 	}
 	
