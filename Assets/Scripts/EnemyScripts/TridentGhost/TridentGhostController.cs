@@ -59,10 +59,11 @@ public class TridentGhostController : MonoBehaviour {
 			if(!animation.IsPlaying("Attack"))
 			{
 				isAttacking = false;
-				bms.enable ();
 			}
 			
 		}
+		else
+			bms.enable ();
 		
 		if(stats.health <= 0)
 			Destroy (gameObject);
