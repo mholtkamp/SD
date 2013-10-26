@@ -1,14 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Title\cameraScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Title\castleScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\Title\titleScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyScripts\TridentGhost\TridentGhostController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Title\hoverScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyScripts\Torpedo\torpedoMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Title\startButtonScript.cs" Line="26" Column="16" />
-      <File FileName="Assets\Scripts\Title\exitButtonScript.cs" Line="25" Column="3" />
-      <File FileName="Assets\Scripts\Title\cameraScript.cs" Line="76" Column="4" />
+      <File FileName="Assets\Scripts\Spells\FrostWall.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Title\startButtonScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Title\wizardButtonScript.cs" Line="7" Column="20" />
+      <File FileName="Assets\Scripts\Title\archerButtonScript.cs" Line="77" Column="14" />
+      <File FileName="Assets\Scripts\Title\warriorButtonScript.cs" Line="53" Column="19" />
+      <File FileName="Assets\Scripts\Title\cameraScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\statsTextScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Title\classTextScript.cs" Line="68" Column="16" />
+      <File FileName="Assets\Scripts\Title\castleScript.cs" Line="27" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
