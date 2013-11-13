@@ -44,7 +44,6 @@ public class IceBallActivationScript : MonoBehaviour {
 				{
 					hit = true;
 					affectedEnemy = col.gameObject;
-					print("Affected enemy is... " + affectedEnemy.name);
 					(affectedEnemy.GetComponent(typeof(Stats)) as Stats).speed -= 70;
 					(affectedEnemy.GetComponent(typeof(Stats)) as Stats).health -= 30;
 					renderer.enabled = false;

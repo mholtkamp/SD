@@ -5,6 +5,7 @@ public class Stats : MonoBehaviour {
 	
 	public float health, maxHealth;
 	public int damage,speed,wisdom,attackSpeed;
+	public bool initialized;
 	void Start()
 	{
 		maxHealth = 100;
@@ -13,6 +14,7 @@ public class Stats : MonoBehaviour {
 		speed = 200;
 		wisdom = 3;
 		attackSpeed = 3;
+		initialized = false;
 	}
 
 }

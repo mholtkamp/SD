@@ -21,7 +21,8 @@ public class DunGen : MonoBehaviour {
 	
 	enum Enemies {	TridentGhost,
 					Beamo,
-					Torpedo};
+					Torpedo,
+					CasterGhost};
 	
 	
 	
@@ -277,7 +278,7 @@ public class DunGen : MonoBehaviour {
 			
 			enemyCount = 12;
 			enemyMin = 0;
-			enemyMax = 2;
+			enemyMax = 3;
 			
 		}
 	}
@@ -296,6 +297,8 @@ public class DunGen : MonoBehaviour {
 				newEnemy = (GameObject) Instantiate (Resources.Load ("beamo"));
 			else if(en == Enemies.Torpedo)
 				newEnemy = (GameObject) Instantiate (Resources.Load ("TorpedoParent"));
+			else if(en == Enemies.CasterGhost)
+				newEnemy = (GameObject) Instantiate (Resources.Load ("casterghost"));
 			
 			while(!posFound)
 			{

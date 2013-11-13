@@ -51,6 +51,10 @@
      <Compile Include="Assets\Scripts\EnemyScripts\BasicMovementScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\Beamo\beamoScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\Beamo\spikeballScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\CasterGhost\casterGhostController.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\CasterGhost\fireBallScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\CasterGhost\infernoScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\CasterGhost\infexpScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\Torpedo\torpedoMovement.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\TridentGhost\TridentGhostController.cs" />
      <Compile Include="Assets\Scripts\SpellActivationScripts\DetonateActivationScript.cs" />
@@ -67,9 +71,11 @@
      <Compile Include="Assets\Scripts\Spells\Spell.cs" />
      <Compile Include="Assets\Scripts\Stats.cs" />
      <Compile Include="Assets\Scripts\Title\archerButtonScript.cs" />
+     <Compile Include="Assets\Scripts\Title\blackFaderScript.cs" />
      <Compile Include="Assets\Scripts\Title\cameraScript.cs" />
      <Compile Include="Assets\Scripts\Title\castleScript.cs" />
      <Compile Include="Assets\Scripts\Title\classTextScript.cs" />
+     <Compile Include="Assets\Scripts\Title\diffButtonScript.cs" />
      <Compile Include="Assets\Scripts\Title\exitButtonScript.cs" />
      <Compile Include="Assets\Scripts\Title\hoverScript.cs" />
      <Compile Include="Assets\Scripts\Title\startButtonScript.cs" />

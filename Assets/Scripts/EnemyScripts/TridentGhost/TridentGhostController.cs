@@ -37,6 +37,7 @@ public class TridentGhostController : MonoBehaviour {
 			{
 				hitCheckTimer = 0.3f;
 				isAttacking = true;
+				animation.wrapMode = WrapMode.Once;
 				animation.Play ("Attack");
 				bms.disable ();
 			}

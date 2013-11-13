@@ -45,11 +45,12 @@ public class BasicMovementScript : MonoBehaviour {
 			return;
 		else
 		{
-			Physics.Raycast (transform.position, targVect, out colCast,targVect.magnitude);
-			if(colCast.transform.gameObject == chara)
+			if(Physics.Raycast (transform.position, targVect, out colCast,targVect.magnitude))
 			{
-				targetAcquired = true;
-				print ("TARGET FOUND");
+				if(colCast.transform.gameObject == chara)
+				{
+					targetAcquired = true;
+				}
 			}
 		}
 	}
@@ -96,6 +97,7 @@ public class BasicMovementScript : MonoBehaviour {
 	public void enable()
 	{
 		isEnabled = true;
+		animation.wrapMode =WrapMode.Loop;
 	}
 	
 }

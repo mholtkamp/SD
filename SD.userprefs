@@ -1,16 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Title\castleScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyScripts\TridentGhost\TridentGhostController.cs">
     <Files>
-      <File FileName="Assets\Scripts\Spells\FrostWall.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Title\startButtonScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Title\wizardButtonScript.cs" Line="7" Column="20" />
-      <File FileName="Assets\Scripts\Title\archerButtonScript.cs" Line="77" Column="14" />
-      <File FileName="Assets\Scripts\Title\warriorButtonScript.cs" Line="53" Column="19" />
-      <File FileName="Assets\Scripts\Title\cameraScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\statsTextScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Title\classTextScript.cs" Line="68" Column="16" />
-      <File FileName="Assets\Scripts\Title\castleScript.cs" Line="27" Column="2" />
+      <File FileName="Assets\Scripts\EnemyScripts\CasterGhost\casterGhostController.cs" Line="32" Column="25" />
+      <File FileName="Assets\Scripts\EnemyScripts\BasicMovementScript.cs" Line="53" Column="1" />
+      <File FileName="Assets\Scripts\Stats.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyScripts\CasterGhost\infernoScript.cs" Line="16" Column="16" />
+      <File FileName="Assets\Scripts\EnemyScripts\CasterGhost\infexpScript.cs" Line="27" Column="2" />
+      <File FileName="Assets\Scripts\EnemyScripts\CasterGhost\fireBallScript.cs" Line="20" Column="1" />
+      <File FileName="Assets\Scripts\SpellActivationScripts\IceBallActivationScript.cs" Line="47" Column="1" />
+      <File FileName="Assets\Scripts\Dungeon Generation\DunGen.cs" Line="281" Column="16" />
+      <File FileName="Assets\Scripts\EnemyScripts\TridentGhost\TridentGhostController.cs" Line="40" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

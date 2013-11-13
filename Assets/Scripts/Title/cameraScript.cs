@@ -9,6 +9,10 @@ public class cameraScript : MonoBehaviour {
 	warriorButtonScript war;
 	archerButtonScript arc;
 	classTextScript cts;
+	diffButtonScript diff1;
+	diffButtonScript diff2;
+	diffButtonScript diff3;
+	blackFaderScript blackfader;
 	int state ;
 	
 	//State 1 vars
@@ -33,6 +37,8 @@ public class cameraScript : MonoBehaviour {
 		war = GameObject.Find ("WarriorButton").GetComponent (typeof(warriorButtonScript)) as warriorButtonScript;
 		arc = GameObject.Find ("ArcherButton").GetComponent (typeof(archerButtonScript)) as archerButtonScript;
 		cts = GameObject.Find ("ClassText").GetComponent(typeof(classTextScript)) as classTextScript;
+
+
 		state = 0;
 	}
 
@@ -123,12 +129,39 @@ public class cameraScript : MonoBehaviour {
 			}
 			else
 			{
+				Instantiate(Resources.Load ("difficulty1")).name = "difficulty1";
+				Instantiate(Resources.Load ("difficulty2")).name = "difficulty2";
+				Instantiate(Resources.Load ("difficulty3")).name = "difficulty3";
+
+				diff1 = GameObject.Find ("difficulty1").GetComponent (typeof(diffButtonScript)) as diffButtonScript;
+				diff2 = GameObject.Find ("difficulty2").GetComponent (typeof(diffButtonScript)) as diffButtonScript;
+				diff3 = GameObject.Find ("difficulty3").GetComponent (typeof(diffButtonScript)) as diffButtonScript;
+				
+				diff1.show ();
+				diff2.show ();
+				diff3.show ();
+				
 				state = 5;
 			}
+		}
+		else if(state == 5)
+		{
+			if(diff1.faded && diff2.faded && diff3.faded)
+			{
+				Destroy (diff1.gameObject);
+				Destroy (diff2.gameObject);
+				Destroy (diff3.gameObject);
+				blackfader = ((GameObject) Instantiate(Resources.Load ("black"))).GetComponent(typeof(blackFaderScript)) as blackFaderScript;
+				state = 6;
+			}
+		}
+		else if(state == 6)
+		{
+			if(blackfader.faded == true)
+				Application.LoadLevel ("lvl1");
+			else
+				transform.Translate (0.05f,0f,0f,Space.World);
 			
-			
-			
-
 		}
 		
 		
