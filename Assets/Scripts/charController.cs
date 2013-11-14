@@ -11,10 +11,10 @@ public class charController : MonoBehaviour {
 	public float collisionBuffer;
 	Stats stats;
 	private int animationSelector;
-	public float attackTimer;
+	public float attackTimer, attackBuffer;
 	private bool notAttacking;
 	private GameObject knight;
-	private Stats enemyStats;
+	private Stats enemyStats, chestStats;
 	private bool noDamageYet;
 	
 	
@@ -29,7 +29,7 @@ public class charController : MonoBehaviour {
 		notAttacking = true;
 		knight = GameObject.Find("knight");
 		noDamageYet = true;
-		
+		attackBuffer = .1f;
 //		animation.Play("Take 001");
 	}
 	
@@ -49,7 +49,7 @@ public class charController : MonoBehaviour {
 			notAttacking = false;
 			noDamageYet = true;
 		}
-		if(attackTimer > 0)
+		if(attackTimer > 0 && (attackTimer < .5f - attackBuffer))
 		{
 			if(noDamageYet)
 			{
@@ -60,6 +60,13 @@ public class charController : MonoBehaviour {
 					enemyStats = (Stats) colCast.collider.gameObject.GetComponent(typeof(Stats));
 					//	print ("HIT THE ENEMY!");
 					enemyStats.health -= 25f;
+					noDamageYet = false;	
+				}
+				if(colCast.collider.tag.Equals("Chest")&&noDamageYet)
+				{
+					chestStats = (Stats) colCast.collider.gameObject.GetComponent(typeof(Stats));
+					//	print ("HIT THE ENEMY!");
+					chestStats.health -= 101f;
 					noDamageYet = false;	
 				}
 			  }
@@ -75,6 +82,13 @@ public class charController : MonoBehaviour {
 					enemyStats.health -= 25f;
 					noDamageYet = false;	
 				}
+				if(colCast.collider.tag.Equals("Chest")&&noDamageYet)
+				{
+					chestStats = (Stats) colCast.collider.gameObject.GetComponent(typeof(Stats));
+					//	print ("HIT THE ENEMY!");
+					chestStats.health -= 101f;
+					noDamageYet = false;	
+				}
 			  }
 			}
 			if(noDamageYet)
@@ -88,10 +102,19 @@ public class charController : MonoBehaviour {
 					enemyStats.health -= 25f;
 					noDamageYet = false;	
 				}
+				if(colCast.collider.tag.Equals("Chest")&&noDamageYet)
+				{
+					chestStats = (Stats) colCast.collider.gameObject.GetComponent(typeof(Stats));
+					//	print ("HIT THE ENEMY!");
+					chestStats.health -= 101f;
+					noDamageYet = false;	
+				}
 			  }
 			}
 			attackTimer -= Time.deltaTime;
 		}
+		if(attackTimer > .35f )
+			attackTimer -= Time.deltaTime;
 		if(attackTimer <= 0)
 		{	
 			animationSelector = 0;

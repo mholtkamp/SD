@@ -19,6 +19,8 @@ public class DunGen : MonoBehaviour {
 	int enemyMin;
 	int enemyMax;
 	
+	int chestCount;
+	
 	enum Enemies {	TridentGhost,
 					Beamo,
 					Torpedo,
@@ -144,6 +146,7 @@ public class DunGen : MonoBehaviour {
 		createWalls();
 		spawnCharacter();
 		spawnEnemies();
+		spawnChests ();
 		instantiateHUD ();
 		
 		
@@ -174,6 +177,8 @@ public class DunGen : MonoBehaviour {
 		(GameObject.Instantiate (Resources.Load ("SpellBarHUD"))).name = "SpellBarHUD";
 		(GameObject.Instantiate (Resources.Load ("GUI"))).name = "GUI";
 		(GameObject.Instantiate (Resources.Load ("ConjBar"))).name = "ConjBar";
+		(GameObject.Instantiate (Resources.Load ("ItemWheel"))).name = "ItemWheel";
+
 
 	}
 	
@@ -267,6 +272,26 @@ public class DunGen : MonoBehaviour {
 		}
 	}
 	
+	private void spawnChests()
+	{
+		for(int i = 0; i < chestCount; i++)
+		{
+			GameObject newChest = (GameObject) Instantiate (Resources.Load ("treasure"));
+			bool posFound = false;
+			while(!posFound)
+			{
+				int xPos =	Random.Range (0,MAP_WIDTH);
+				int yPos =  Random.Range (0,MAP_HEIGHT);
+				if(map[xPos,yPos] == 1)
+				{
+					posFound = true;
+					newChest.transform.position = new Vector3(xPos,0.228f,yPos);
+				}
+				
+			}
+		}
+	}
+	
 	private void setGenParameters()
 	{
 		if(Application.loadedLevelName.Equals ("lvl1"))
@@ -279,6 +304,8 @@ public class DunGen : MonoBehaviour {
 			enemyCount = 12;
 			enemyMin = 0;
 			enemyMax = 3;
+			
+			chestCount = Random.Range (1,5);
 			
 		}
 	}
