@@ -68,6 +68,7 @@ public class SpellBar{
 		spellPool = new List<Spell>();
 		//Put starting Spell Pool here. 
 		//Add variation for different classes once they get implemented.
+
 		spellPool.Add (new FireBall());
 		spellPool.Add (new FireBall());
 		spellPool.Add (new FireBall());
@@ -85,6 +86,22 @@ public class SpellBar{
 		spellPool.Add (new IceBall());
 		spellPool.Add (new IceBall());
 		spellPool.Add (new IceBall());
+		spellPool.Add (new Charge());
+		spellPool.Add (new Charge());
+		spellPool.Add (new Charge());
+		spellPool.Add (new Charge());
+		spellPool.Add (new Barrier());
+		spellPool.Add (new Barrier());
+		spellPool.Add (new Barrier());
+		spellPool.Add (new Barrier());
+		spellPool.Add (new Familiar());
+		spellPool.Add (new Familiar());
+		spellPool.Add (new Familiar());
+		spellPool.Add (new Familiar());
+		spellPool.Add (new Familiar());
+		spellPool.Add (new Familiar());
+				
+				
 
 		
 

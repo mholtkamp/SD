@@ -1,14 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Dungeon Generation\DunGen.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SpellBar.cs">
     <Files>
+      <File FileName="Assets\Scripts\SpellActivationScripts\FamiliarActivationScript.cs" Line="36" Column="28" />
+      <File FileName="Assets\Scripts\Dungeon Generation\DunGen.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ItemList.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyScripts\CasterGhost\casterGhostController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyScripts\CasterGhost\fireBallScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Spells\Familiar.cs" Line="9" Column="60" />
       <File FileName="Assets\Scripts\Spells\IceBall.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Spells\Charge.cs" Line="16" Column="40" />
-      <File FileName="Assets\Scripts\SpellActivationScripts\ChargeActivationScript.cs" Line="7" Column="17" />
-      <File FileName="Assets\Scripts\charController.cs" Line="17" Column="15" />
-      <File FileName="Assets\Scripts\oldCharController.cs" Line="5" Column="18" />
-      <File FileName="Assets\Scripts\itemWheel.cs" Line="53" Column="1" />
-      <File FileName="Assets\Scripts\Dungeon Generation\DunGen.cs" Line="288" Column="58" />
+      <File FileName="Assets\Scripts\SpellBar.cs" Line="103" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
